@@ -11,6 +11,9 @@ async function login() {
 
         user = await Moralis.Web3.authenticate();
         console.log(user);
+        let email = document.getElementById("email_input").value;
+        user.set("email", email);
+        await user.save();
         alert("User logged in")
         document.getElementById("login_button").style.display = "none";
         document.getElementById("game").style.display = "block";
@@ -22,6 +25,7 @@ async function login() {
 async function flip(side){
     let amount = document.getElementById("amount").value;
      alert(side + '  ' + amount)
+     let contractInstance = new web3.eth.Contract(contractAbi, contractAddress)
 
 }
 
